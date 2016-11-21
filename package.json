@@ -1,12 +1,13 @@
 {
   "name": "micro-api-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Micro REST API client",
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel --presets es2015 --plugins syntax-object-rest-spread,transform-object-rest-spread -d lib/ src/",
     "prepublish": "npm run compile"
   },
+  "files": ["lib"],
   "author": "Mathias Biilmann Christensen",
   "license": "ISC",
   "devDependencies": {
