@@ -1,3 +1,4 @@
+
 export default class API {
   constructor(apiURL) {
     this.apiURL = apiURL;
@@ -28,7 +29,13 @@ export default class API {
         return this.parseJsonResponse(response);
       }
 
-      return response.text().then((text) => ({data: text}));
+      return response.text().then((data) => {
+        if (!response.ok) {
+          return Promise.reject({data});
+        }
+
+        return {data};
+      });
     });
   }
 }
