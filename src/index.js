@@ -1,3 +1,4 @@
+import {getPagination} from './pagination';
 
 export default class API {
   constructor(apiURL) {
@@ -17,7 +18,9 @@ export default class API {
         return Promise.reject(json);
       }
 
-      return json;
+      const pagination = getPagination(response);
+
+      return pagination ? {pagination, items: json} : json;
     });
   }
 
