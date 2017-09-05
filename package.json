@@ -1,6 +1,6 @@
 {
   "name": "micro-api-client",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Micro REST API client",
   "main": "lib/index.js",
   "scripts": {
@@ -25,9 +25,15 @@
     "plugins": [
       "syntax-object-rest-spread",
       "transform-object-rest-spread",
-      ["transform-builtin-extend", {
-        "globals": ["Error", "Array"]
-      }]
+      [
+        "transform-builtin-extend",
+        {
+          "globals": [
+            "Error",
+            "Array"
+          ]
+        }
+      ]
     ]
   }
 }
