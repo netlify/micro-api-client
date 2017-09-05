@@ -1,5 +1,31 @@
 import {getPagination} from './pagination';
 
+class HTTPError extends Error {
+  constructor(response) {
+    super(response.statusText);
+    this.status = response.status;
+    this.name = 'HTTPError';
+  }
+}
+
+class TextHTTPError extends HTTPError {
+  constructor(response, data) {
+    super(response);
+    this.data = data;
+    this.name = 'TextHTTPError';
+  }
+}
+
+class JSONHTTPError extends HTTPError {
+  constructor(response, json) {
+    super(response)
+    this.json = json;
+    this.name = 'JSONHTTPError';
+  }
+}
+
+export { HTTPError, TextError, JSONError };
+
 export default class API {
   constructor(apiURL) {
     this.apiURL = apiURL;
@@ -15,11 +41,10 @@ export default class API {
   parseJsonResponse(response) {
     return response.json().then((json) => {
       if (!response.ok) {
-        return Promise.reject(json);
+        return Promise.reject(new JSONHTTPError(response, json));
       }
 
       const pagination = getPagination(response);
-
       return pagination ? {pagination, items: json} : json;
     });
   }
@@ -32,13 +57,12 @@ export default class API {
         return this.parseJsonResponse(response);
       }
 
-      return response.text().then((data) => {
-        if (!response.ok) {
-          return Promise.reject({data});
-        }
-
-        return {data};
-      });
+      if (!response.ok) {
+        return response.text().then(data => {
+          return Promise.reject(new TextHTTPError(response, data));
+        });
+      }
+      return response.text().then((data) => {data});
     });
   }
 }
