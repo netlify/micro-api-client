@@ -3,8 +3,13 @@ import {getPagination} from './pagination';
 class HTTPError extends Error {
   constructor(response) {
     super(response.statusText);
+    this.name = this.constructor.name;
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, this.constructor);
+    } else { 
+      this.stack = (new Error(message)).stack; 
+    }
     this.status = response.status;
-    this.name = 'HTTPError';
   }
 }
 
@@ -12,7 +17,6 @@ class TextHTTPError extends HTTPError {
   constructor(response, data) {
     super(response);
     this.data = data;
-    this.name = 'TextHTTPError';
   }
 }
 
@@ -20,7 +24,6 @@ class JSONHTTPError extends HTTPError {
   constructor(response, json) {
     super(response)
     this.json = json;
-    this.name = 'JSONHTTPError';
   }
 }
 
