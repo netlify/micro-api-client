@@ -14,12 +14,7 @@ export default class API {
 
   parseJsonResponse(response) {
     return response.json().then((json) => {
-      if (!response.ok) {
-        return Promise.reject(json);
-      }
-
       const pagination = getPagination(response);
-
       return pagination ? {pagination, items: json} : json;
     });
   }
@@ -27,18 +22,19 @@ export default class API {
   request(path, options = {}) {
     const headers = this.headers(options.headers || {});
     return fetch(this.apiURL + path, {...options, headers}).then((response) => {
+      if (!response.ok) {
+        return response.text().then(data => {
+          const err = new Error(data);
+          err.status = response.status;
+          return Promise.reject(err);
+        });
+      }
+
       const contentType = response.headers.get('Content-Type');
       if (contentType && contentType.match(/json/)) {
         return this.parseJsonResponse(response);
       }
-
-      return response.text().then((data) => {
-        if (!response.ok) {
-          return Promise.reject({data});
-        }
-
-        return {data};
-      });
+      return response.text().then((data) => {data});
     });
   }
 }
