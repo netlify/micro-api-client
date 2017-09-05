@@ -24,7 +24,7 @@ class JSONHTTPError extends HTTPError {
   }
 }
 
-export { HTTPError, TextError, JSONError };
+export { HTTPError, TextHTTPError, JSONHTTPError };
 
 export default class API {
   constructor(apiURL) {
