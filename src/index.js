@@ -6,8 +6,8 @@ class HTTPError extends Error {
     this.name = this.constructor.name;
     if (typeof Error.captureStackTrace === 'function') {
       Error.captureStackTrace(this, this.constructor);
-    } else { 
-      this.stack = (new Error(response.statusText)).stack; 
+    } else {
+      this.stack = (new Error(response.statusText)).stack;
     }
     this.status = response.status;
   }
@@ -30,12 +30,14 @@ class JSONHTTPError extends HTTPError {
 export { HTTPError, TextHTTPError, JSONHTTPError };
 
 export default class API {
-  constructor(apiURL) {
+  constructor(apiURL, {defaultHeaders}) {
     this.apiURL = apiURL;
+    this.defaultHeaders = defaultHeaders || {};
   }
 
   headers(headers = {}) {
     return {
+      ...this.defaultHeaders,
       'Content-Type': 'application/json',
       ...headers
     };
