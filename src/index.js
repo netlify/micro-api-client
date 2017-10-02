@@ -30,9 +30,9 @@ class JSONHTTPError extends HTTPError {
 export { HTTPError, TextHTTPError, JSONHTTPError };
 
 export default class API {
-  constructor(apiURL, {defaultHeaders}) {
+  constructor(apiURL, options) {
     this.apiURL = apiURL;
-    this.defaultHeaders = defaultHeaders || {};
+    this.defaultHeaders = options && options.defaultHeaders || {};
   }
 
   headers(headers = {}) {
