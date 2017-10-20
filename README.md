@@ -16,7 +16,7 @@ api.request('foo')
 
 ### `api = new API(apiURL, [opts])`
 
-Create a new `micro-api-client` instance.  `apiURL` can be a full or relative URL.  Optional `opts` inclide:
+Create a new `micro-api-client` instance.  `apiURL` can be a full or relative URL.  Optional `opts` include:
 
 ```js
 {
