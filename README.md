@@ -37,7 +37,7 @@ Make a request to the `apiURL` at the given `path`.  Optional `opts` are passed 
 }
 ```
 
-Returns a promise with the `response`.  If the `contentType` is JSON, it will be checked for pagination and return either the parsed JSON object or a paginatied JSON object:
+Returns a promise with the `response`.  If the `contentType` is JSON, it will be checked for pagination and return either the parsed JSON object or a paginated JSON object:
 
 ```js
 // See src/pagination.js
@@ -54,7 +54,7 @@ Returns a promise with the `response`.  If the `contentType` is JSON, it will be
 }
 ```
 
-If an error occures during the request, the promise may be rejected with an `HTTPError`, `TextHTTPError`, or `JSONHTTPError`.
+If an error occurs during the request, the promise may be rejected with an `HTTPError`, `TextHTTPError`, or `JSONHTTPError`.
 
 ### `class HTTPError extends Error`
 
