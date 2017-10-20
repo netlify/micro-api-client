@@ -7,8 +7,8 @@ Small library for talking to micro REST APIs (not related to Netlify's main API)
 ```js
 const api = new API('/.some/api/endpoint')
 api.request('foo')
-  .then(response => console.log(response))
-  .catch(err => console.error(err))
+   .then(response => console.log(response))
+   .catch(err => console.error(err))
 ```
 
 
@@ -16,7 +16,7 @@ api.request('foo')
 
 ### `api = new API(apiURL, [opts])`
 
-Create a new `micro-api-client` instance.  `apiURL` can be a full or relative URL.  Options inclide:
+Create a new `micro-api-client` instance.  `apiURL` can be a full or relative URL.  Optional `opts` inclide:
 
 ```js
 {
@@ -31,7 +31,7 @@ Make a request to the `apiURL` at the given `path`.  Optional `opts` are passed 
 ```js
 // Default options
 {
-headers: {} // Optional headers object.  Overrides defaultHeaders
+  headers: {} // Optional headers object.  Overrides defaultHeaders
   credentials: "same-origin" // set fetch credentials option
   "Content-Type": "application/json" // set Content-Type fetch option
 }
