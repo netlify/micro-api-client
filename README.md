@@ -5,7 +5,7 @@ Small library for talking to micro REST APIs (not related to Netlify's main API)
 ## Usage
 
 ```js
-const api = new API('/.some/api/endpoint')
+const api = new API('/some/api/endpoint')
 api.request('foo')
    .then(response => console.log(response))
    .catch(err => console.error(err))
