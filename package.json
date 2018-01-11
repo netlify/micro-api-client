@@ -3,22 +3,6 @@
   "description": "Micro REST API client",
   "version": "3.2.1",
   "author": "Mathias Biilmann Christensen",
-  "babel": {
-    "presets": "env",
-    "plugins": [
-      "syntax-object-rest-spread",
-      "transform-object-rest-spread",
-      [
-        "transform-builtin-extend",
-        {
-          "globals": [
-            "Error",
-            "Array"
-          ]
-        }
-      ]
-    ]
-  },
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-eslint": "^8.2.1",
