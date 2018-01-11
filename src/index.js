@@ -1,6 +1,6 @@
 import { getPagination } from "./pagination";
 
-class HTTPError extends Error {
+export class HTTPError extends Error {
   constructor(response) {
     super(response.statusText);
     this.name = this.constructor.name;
@@ -13,26 +13,24 @@ class HTTPError extends Error {
   }
 }
 
-class TextHTTPError extends HTTPError {
+export class TextHTTPError extends HTTPError {
   constructor(response, data) {
     super(response);
     this.data = data;
   }
 }
 
-class JSONHTTPError extends HTTPError {
+export class JSONHTTPError extends HTTPError {
   constructor(response, json) {
     super(response);
     this.json = json;
   }
 }
 
-export { HTTPError, TextHTTPError, JSONHTTPError };
-
 export default class API {
   constructor(apiURL, options) {
     this.apiURL = apiURL;
-    if (this.apiURL.match(/\/[^\/]?/)) {
+    if (this.apiURL.match(/\/[^/]?/)) {
       this._sameOrigin = true;
     }
     this.defaultHeaders = (options && options.defaultHeaders) || {};
