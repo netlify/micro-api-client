@@ -1,32 +1,35 @@
 # micro-api-client
 
+[![Build Status](https://travis-ci.org/netlify/micro-api-client-lib.svg?branch=master)](https://travis-ci.org/netlify/micro-api-client-lib)
+
 Small library for talking to micro REST APIs (not related to Netlify's main API).
 
 ## Usage
 
 ```js
-const api = new API('/some/api/endpoint')
-api.request('foo')
-   .then(response => console.log(response))
-   .catch(err => console.error(err))
+const api = new API("/some/api/endpoint");
+api
+  .request("foo")
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 ```
-
 
 ### API
 
 ### `api = new API(apiURL, [opts])`
 
-Create a new `micro-api-client` instance.  `apiURL` can be a full or relative URL.  Optional `opts` include:
+Create a new `micro-api-client` instance. `apiURL` can be a full or relative URL. Optional `opts` include:
 
 ```js
 {
-  defaultHeaders: {} // header values to include in every request.
+  defaultHeaders: {
+  } // header values to include in every request.
 }
 ```
 
 ### `api.request(path, [opts])`
 
-Make a request to the `apiURL` at the given `path`.  Optional `opts` are passed to the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API:
+Make a request to the `apiURL` at the given `path`. Optional `opts` are passed to the [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) API:
 
 ```js
 // Default options
@@ -37,7 +40,7 @@ Make a request to the `apiURL` at the given `path`.  Optional `opts` are passed 
 }
 ```
 
-Returns a promise with the `response`.  If the `contentType` is JSON, it will be checked for pagination and return either the parsed JSON object or a paginated JSON object:
+Returns a promise with the `response`. If the `contentType` is JSON, it will be checked for pagination and return either the parsed JSON object or a paginated JSON object:
 
 ```js
 // See src/pagination.js
@@ -63,7 +66,7 @@ Additional error properties from Error
 ```js
 {
   stack, // stack trace of error
-  status // status code of response
+    status; // status code of response
 }
 ```
 
@@ -73,7 +76,7 @@ Additional error properties from HTTPError
 
 ```js
 {
-  data // data of text response
+  data; // data of text response
 }
 ```
 
@@ -83,6 +86,6 @@ Additional error properties from HTTPError
 
 ```js
 {
-  json // json of a JSON response
+  json; // json of a JSON response
 }
 ```
