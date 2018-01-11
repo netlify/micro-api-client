@@ -66,7 +66,7 @@ Additional error properties from Error
 ```js
 {
   stack, // stack trace of error
-    status; // status code of response
+  status // status code of response
 }
 ```
 
@@ -76,7 +76,7 @@ Additional error properties from HTTPError
 
 ```js
 {
-  data; // data of text response
+  data // data of text response
 }
 ```
 
@@ -86,6 +86,6 @@ Additional error properties from HTTPError
 
 ```js
 {
-  json; // json of a JSON response
+  json // json of a JSON response
 }
 ```
