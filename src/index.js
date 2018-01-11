@@ -30,7 +30,7 @@ export class JSONHTTPError extends HTTPError {
 export default class API {
   constructor(apiURL, options) {
     this.apiURL = apiURL;
-    if (this.apiURL.match(/\/[^\/]?/)) {
+    if (this.apiURL.match(/\/[^/]?/)) {
       this._sameOrigin = true;
     }
     this.defaultHeaders = (options && options.defaultHeaders) || {};

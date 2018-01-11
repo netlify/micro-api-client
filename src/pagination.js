@@ -24,8 +24,13 @@ export function getPagination(response) {
     }
   }
 
-  pagination.last = Math.max(pagination.last || 0, (pagination.prev && pagination.prev + 1) || 0);
-  pagination.current = pagination.next ? pagination.next - 1 : pagination.last || 1;
+  pagination.last = Math.max(
+    pagination.last || 0,
+    (pagination.prev && pagination.prev + 1) || 0
+  );
+  pagination.current = pagination.next
+    ? pagination.next - 1
+    : pagination.last || 1;
   pagination.total = total ? parseInt(total, 10) : null;
 
   return pagination;
