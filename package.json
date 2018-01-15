@@ -1,7 +1,7 @@
 {
   "name": "micro-api-client",
   "description": "Micro REST API client",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "author": "Mathias Biilmann Christensen",
   "bugs": "https://github.com/netlify/micro-api-client-lib/issues",
   "devDependencies": {
