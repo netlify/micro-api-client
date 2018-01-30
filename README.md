@@ -4,6 +4,12 @@
 
 Small library for talking to micro REST APIs (not related to Netlify's main API).
 
+## Installation
+
+```
+yarn add gotrue-js
+```
+
 ## Usage
 
 ```js
