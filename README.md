@@ -13,7 +13,7 @@ yarn add micro-api-client
 ## Usage
 
 ```js
-import API from 'micro-api-client'
+import API, { getPagination } from 'micro-api-client'
 
 const api = new API("/some/api/endpoint");
 api
@@ -97,3 +97,7 @@ Additional error properties from HTTPError
   json // json of a JSON response
 }
 ```
+
+### `pagination = getPagination(response)`
+
+Returns a pagination object that `micro-api-client` uses internally.

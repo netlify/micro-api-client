@@ -1,4 +1,5 @@
 import { getPagination } from "./pagination";
+export { getPagination } from "./pagination";
 
 export class HTTPError extends Error {
   constructor(response) {
