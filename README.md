@@ -1,6 +1,6 @@
 # micro-api-client
 
-[![Build Status](https://travis-ci.org/netlify/micro-api-client-lib.svg?branch=master)](https://travis-ci.org/netlify/micro-api-client-lib)
+[![Build Status](https://travis-ci.org/netlify/micro-api-client.svg?branch=master)](https://travis-ci.org/netlify/micro-api-client)
 
 Small library for talking to micro REST APIs (not related to Netlify's main API).
 
