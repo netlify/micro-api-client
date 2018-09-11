@@ -7,12 +7,14 @@ Small library for talking to micro REST APIs (not related to Netlify's main API)
 ## Installation
 
 ```
-yarn add gotrue-js
+yarn add micro-api-client
 ```
 
 ## Usage
 
 ```js
+import API from 'micro-api-client'
+
 const api = new API("/some/api/endpoint");
 api
   .request("foo")
