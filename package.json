@@ -3,7 +3,7 @@
   "description": "Micro REST API client",
   "version": "3.2.3",
   "author": "Mathias Biilmann Christensen",
-  "bugs": "https://github.com/netlify/micro-api-client-lib/issues",
+  "bugs": "https://github.com/netlify/micro-api-client/issues",
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-eslint": "^8.2.1",
@@ -20,7 +20,7 @@
   "files": [
     "lib"
   ],
-  "homepage": "https://github.com/netlify/micro-api-client-lib",
+  "homepage": "https://github.com/netlify/micro-api-client",
   "keywords": [
     "api",
     "fetch",
@@ -30,7 +30,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/netlify/micro-api-client-lib.git"
+    "url": "git+https://github.com/netlify/micro-api-client.git"
   },
   "scripts": {
     "compile": "babel src -d lib",
